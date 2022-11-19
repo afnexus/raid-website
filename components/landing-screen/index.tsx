@@ -1,6 +1,6 @@
-import { Box, Container, Heading, Image, Stack, Text } from '@chakra-ui/react';
-import { useRef } from 'react';
 import ScrollAnimation from './ScrollAnimation';
+import { Box, Container, Heading, Stack, Text } from '@chakra-ui/react';
+import { useRef } from 'react';
 
 export default function LandingScreen() {
   const scrollYScale = 3;
