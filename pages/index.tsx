@@ -6,7 +6,10 @@ export default function Home() {
     <div>
       <Head>
         <title>RAiD</title>
-        <meta name="description" content="The unofficially official website for RAiD" />
+        <meta
+          name="description"
+          content="The unofficially official website for RAiD"
+        />
         <link rel="icon" href="/raid.svg" />
       </Head>
       <LandingScreen />

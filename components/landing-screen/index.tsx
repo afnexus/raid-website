@@ -6,7 +6,7 @@ export default function LandingScreen() {
   const scrollYScale = 3;
   const scrollBoxRef = useRef<HTMLDivElement>(null);
   return (
-    <Stack background="black">
+    <Box background="black" overflowX="hidden">
       <Box ref={scrollBoxRef} h={`${scrollYScale * 100}vh`}>
         <Box
           display="flex"
@@ -29,7 +29,7 @@ export default function LandingScreen() {
         color="white"
         display="flex"
         justifyContent="center">
-        <Container maxW={900}>
+        <Container maxW={900} m={24}>
           <Heading>who are we?</Heading>
           <Text>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -44,6 +44,6 @@ export default function LandingScreen() {
           </Text>
         </Container>
       </Box>
-    </Stack>
+    </Box>
   );
 }
