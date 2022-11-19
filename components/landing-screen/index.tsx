@@ -1,28 +1,49 @@
-import { Box, Image } from '@chakra-ui/react';
-import { planeUp, planeFront } from '../../data/paths';
-import { useFlubber } from '../../utils/use-flubber';
+import { Box, Container, Heading, Image, Stack, Text } from '@chakra-ui/react';
+import { useRef } from 'react';
 import ScrollAnimation from './ScrollAnimation';
 
-export type LandingScreenProps = {};
-
-const paths = [planeUp, planeFront];
-
-export default function LandingScreen(props: LandingScreenProps) {
-  const scale = 3;
+export default function LandingScreen() {
+  const scrollYScale = 3;
+  const scrollBoxRef = useRef<HTMLDivElement>(null);
   return (
-    <Box h={`${scale * 100}vh`}>
+    <Stack background="black">
+      <Box ref={scrollBoxRef} h={`${scrollYScale * 100}vh`}>
+        <Box
+          display="flex"
+          w="100vw"
+          h="100vh"
+          alignItems="center"
+          justifyContent="center"
+          position="fixed">
+          <ScrollAnimation
+            style={{ width: '100vw', height: '100vh' }}
+            scale={scrollYScale}
+            scrollBoxRef={scrollBoxRef}
+          />
+        </Box>
+      </Box>
       <Box
-        display="flex"
         w="100vw"
         h="100vh"
-        alignItems="center"
-        justifyContent="center"
-        position="fixed">
-        <ScrollAnimation
-          style={{ width: '100vw', height: '100vh' }}
-          scale={scale}
-        />
+        background="black"
+        color="white"
+        display="flex"
+        justifyContent="center">
+        <Container maxW={900}>
+          <Heading>who are we?</Heading>
+          <Text>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only
+            five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
+          </Text>
+        </Container>
       </Box>
-    </Box>
+    </Stack>
   );
 }

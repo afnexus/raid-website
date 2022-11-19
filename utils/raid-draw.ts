@@ -11,6 +11,8 @@ const PLANE_W = 300;
 export const draw = (ctx: CanvasRenderingContext2D, progress: number) => {
   setTransformData(ctx, {});
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   const scale = Math.min(ctx.canvas.width / 1000, 1);
 
   function handleRaidLogo(transformData: TransformData) {

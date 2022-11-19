@@ -1,14 +1,23 @@
-import { Spinner } from '@chakra-ui/react';
-import React, { CanvasHTMLAttributes, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import React, {
+  CanvasHTMLAttributes,
+  RefObject,
+  useEffect,
+  useRef,
+} from 'react';
 import { draw } from '../../utils/raid-draw';
 
 export type ScrollAnimationProps = CanvasHTMLAttributes<HTMLCanvasElement> & {
   scale: number;
+  scrollBoxRef: RefObject<HTMLDivElement>;
 };
 
 export default function ScrollAnimation(props: ScrollAnimationProps) {
-  const { scale } = props;
+  const { scale, scrollBoxRef } = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const { scrollYProgress } = useScroll({ target: scrollBoxRef });
+  const opacity = useTransform(scrollYProgress, [0, 0.9, 1], [1, 1, 0]);
 
   const onDraw = (resize?: boolean) => {
     const progress = window.scrollY / (window.innerHeight * scale * 0.5);
@@ -45,5 +54,9 @@ export default function ScrollAnimation(props: ScrollAnimationProps) {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  return <canvas ref={canvasRef} {...props} />;
+  return (
+    <motion.div style={{ opacity }}>
+      <canvas ref={canvasRef} {...props} />
+    </motion.div>
+  );
 }
