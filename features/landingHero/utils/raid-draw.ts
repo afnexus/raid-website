@@ -1,22 +1,27 @@
-import { dChar, iChar, planeFront, planeUp, rChar } from '../data/paths';
+import { dChar, iChar, planeFront, planeUp, rChar } from '../constants/paths';
 import {
   applyTransformData,
   setTransformData,
   TransformData,
 } from './transform';
+import { primary, secondary } from "@afnexus/hummingbird-ui-assets";
 
 const PLANE_Y_OFFSET_MULTIPLIER = -194; //This is a magic number
 const PLANE_W = 300;
 
-export const draw = (ctx: CanvasRenderingContext2D, progress: number) => {
+export const draw = (ctx: CanvasRenderingContext2D, progress: number, image: HTMLImageElement) => {
   setTransformData(ctx, {});
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  ctx.fillStyle = '#ffffff';
+
+  const imagePattern = ctx.createPattern(image, 'repeat');
+  if (!imagePattern) return;
+  ctx.fillStyle = imagePattern;
   ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
   const scale = Math.min(ctx.canvas.width / 1000, 1);
 
   function handleRaidLogo(transformData: TransformData) {
-    ctx.fillStyle = `rgba(0,0,0,${1 - progress * 2})`;
+    ctx.fillStyle = "white";
     const rPath = new Path2D(rChar);
     setTransformData(ctx, transformData);
     ctx.fill(rPath);
@@ -54,7 +59,13 @@ export const draw = (ctx: CanvasRenderingContext2D, progress: number) => {
   }
 
   function handlePlane(tranformData: TransformData) {
-    ctx.fillStyle = '#000000';
+    //Create plane gradient color
+    var planeGradient = ctx.createLinearGradient(0,0,ctx.canvas.width/4,ctx.canvas.height/4);
+    planeGradient.addColorStop(0, "black");
+    planeGradient.addColorStop(0.5, primary[400]);
+    planeGradient.addColorStop(1, secondary[400]);
+
+    ctx.fillStyle = planeGradient;
     const rotateProgress =
       Math.sin(Math.max(0, (progress - 0.3) * 1.5) * 2.6) * 1.5;
     const lScale =

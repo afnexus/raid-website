@@ -1,5 +1,7 @@
 import Head from 'next/head';
-import LandingScreen from '../components/landing-screen';
+import LandingBody from '../features/landingBody';
+import LandingHero from '../features/landingHero';
+import { Stack } from "@chakra-ui/react";
 
 export default function Home() {
   return (
@@ -12,7 +14,10 @@ export default function Home() {
         />
         <link rel="icon" href="/raid.svg" />
       </Head>
-      <LandingScreen />
+      <Stack>
+        <LandingHero/>
+        <LandingBody/>
+      </Stack>
     </div>
   );
 }

@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@afnexus/hummingbird-ui-assets@^1.2.0":
+  "integrity" "sha512-5sVH3389Z1n4PhvL4tSmuu2LVN449qbaY/k4SS3xIJnv/iRsmACJpf50J0k3aozrFvITV18E5EZ5ZRt3/XX9/g=="
+  "resolved" "https://registry.npmjs.org/@afnexus/hummingbird-ui-assets/-/hummingbird-ui-assets-1.2.0.tgz"
+  "version" "1.2.0"
+
 "@ampproject/remapping@^2.1.0":
   "integrity" "sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w=="
   "resolved" "https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.2.0.tgz"

@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
-import { draw } from '../../utils/raid-draw';
+import { draw } from '../utils/raid-draw';
 
 export type ScrollAnimationProps = CanvasHTMLAttributes<HTMLCanvasElement> & {
   scale: number;
@@ -23,13 +23,19 @@ export default function ScrollAnimation(props: ScrollAnimationProps) {
     const progress = window.scrollY / (window.innerHeight * scale * 0.5);
     const canvas = canvasRef.current;
     if (!canvas) return;
+
     const context = canvas.getContext('2d');
     if (!context) return;
     if (resize) {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
-    draw(context, progress);
+    
+    var image = new Image();
+    image.src = "nightSkyBackground.svg"
+    image.onload = () => {
+      draw(context, progress, image);
+    }
   };
 
   useEffect(() => {
