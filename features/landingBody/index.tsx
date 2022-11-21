@@ -104,7 +104,7 @@ export default function LandingBody(props: LandingBodyProps) {
           </Text>
           <Button
             onClick={() =>
-              router.push("https://form.gov.sg/#!/6379c4c8d4118f0012a30482")
+              router.push("https://form.gov.sg/61ea66776c89fd001206bed0")
             }
             color={primary[500]}
             backgroundColor={primary[200]}
