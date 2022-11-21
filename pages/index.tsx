@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import LandingBody from '../features/landingBody';
-import LandingHero from '../features/landingHero';
+import Head from "next/head";
+import LandingBody from "../features/landingBody";
+import LandingHero from "../features/landingHero";
 import { Stack } from "@chakra-ui/react";
 
 export default function Home() {
@@ -14,9 +14,9 @@ export default function Home() {
         />
         <link rel="icon" href="/raid.svg" />
       </Head>
-      <Stack>
-        <LandingHero/>
-        <LandingBody/>
+      <Stack overflowX="hidden">
+        <LandingHero />
+        <LandingBody />
       </Stack>
     </div>
   );

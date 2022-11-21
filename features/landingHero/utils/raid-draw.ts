@@ -1,27 +1,29 @@
-import { dChar, iChar, planeFront, planeUp, rChar } from '../constants/paths';
+import { dChar, iChar, planeFront, planeUp, rChar } from "../constants/paths";
 import {
   applyTransformData,
   setTransformData,
   TransformData,
-} from './transform';
-import { primary, secondary } from "@afnexus/hummingbird-ui-assets";
+} from "./transform";
+import { primary } from "@afnexus/hummingbird-ui-assets";
+import lerp from "./lerp";
 
 const PLANE_Y_OFFSET_MULTIPLIER = -194; //This is a magic number
 const PLANE_W = 300;
 
-export const draw = (ctx: CanvasRenderingContext2D, progress: number, image: HTMLImageElement) => {
+export const draw = (ctx: CanvasRenderingContext2D, progress: number) => {
   setTransformData(ctx, {});
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-  const imagePattern = ctx.createPattern(image, 'repeat');
-  if (!imagePattern) return;
-  ctx.fillStyle = imagePattern;
-  ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+  // // const imagePattern = ctx.createPattern(image, 'repeat');
+  // // if (!imagePattern) return;
+  // // ctx.fillStyle = imagePattern;
+  // ctx.fillStyle = primary[800];
+  // ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
   const scale = Math.min(ctx.canvas.width / 1000, 1);
 
   function handleRaidLogo(transformData: TransformData) {
-    ctx.fillStyle = "white";
+    ctx.fillStyle = `rgba(255,255,255,${1 - progress * 2}`;
     const rPath = new Path2D(rChar);
     setTransformData(ctx, transformData);
     ctx.fill(rPath);
@@ -60,12 +62,24 @@ export const draw = (ctx: CanvasRenderingContext2D, progress: number, image: HTM
 
   function handlePlane(tranformData: TransformData) {
     //Create plane gradient color
-    var planeGradient = ctx.createLinearGradient(0,0,ctx.canvas.width/4,ctx.canvas.height/4);
-    planeGradient.addColorStop(0, "black");
-    planeGradient.addColorStop(0.5, primary[400]);
-    planeGradient.addColorStop(1, secondary[400]);
+    // var planeGradient = ctx.createLinearGradient(
+    //   0,
+    //   0,
+    //   ctx.canvas.width / 4,
+    //   ctx.canvas.height / 4
+    // );
+    // planeGradient.addColorStop(0, 'black');
+    // planeGradient.addColorStop(0.5, primary[400]);
+    // planeGradient.addColorStop(1, secondary[400]);
 
-    ctx.fillStyle = planeGradient;
+    // ctx.fillStyle = planeGradient;
+
+    ctx.fillStyle = `rgba(${lerp(80, 53, progress)}, ${lerp(
+      114,
+      126,
+      progress
+    )}, ${lerp(168, 180, progress)}, 1)`;
+
     const rotateProgress =
       Math.sin(Math.max(0, (progress - 0.3) * 1.5) * 2.6) * 1.5;
     const lScale =
