@@ -12,7 +12,7 @@ export default function Layout({ children }: LayoutProps) {
       <Navbar />
       <Box
         //bgGradient={`linear(to-r, black, ${primary[400]}, ${secondary[400]})`}
-        backgroundColor={primary[800]}
+        backgroundColor={primary[700]}
         bgImage="nightSkyBackground.svg"
         backgroundSize="300px 300px"
       >
