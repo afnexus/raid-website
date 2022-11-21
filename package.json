@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@afnexus/hummingbird-ui-assets": "^1.2.0",
+    "@chakra-ui/icons": "^2.0.12",
     "@chakra-ui/react": "^2.4.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
