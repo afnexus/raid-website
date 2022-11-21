@@ -1,9 +1,0 @@
-# Staging sls config
-name: staging-raid-website
-
-staging-raid-website:
-  component: '@sls-next/serverless-component@latest'
-  inputs:
-    runtime:
-      defaultLambda: nodejs16.x
-      apiLambda: nodejs16.x
