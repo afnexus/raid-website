@@ -1,5 +1,5 @@
 import ScrollAnimation from './components/ScrollAnimation';
-import { background, Box } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { useRef } from 'react';
 
 type LandingHeroProps = {

@@ -6,6 +6,7 @@ import React, {
   useRef,
 } from 'react';
 import { draw } from '../utils/raid-draw';
+import ScrollDownPrompt from './ScrollDownPrompt';
 
 export type ScrollAnimationProps = CanvasHTMLAttributes<HTMLCanvasElement> & {
   scale: number;
@@ -30,7 +31,7 @@ export default function ScrollAnimation(props: ScrollAnimationProps) {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
-    
+
     var image = new Image();
     image.src = "nightSkyBackground.svg"
     image.onload = () => {
@@ -62,6 +63,7 @@ export default function ScrollAnimation(props: ScrollAnimationProps) {
 
   return (
     <motion.div style={{ opacity }}>
+      <ScrollDownPrompt/>
       <canvas ref={canvasRef} {...props} />
     </motion.div>
   );
