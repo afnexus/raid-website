@@ -10,10 +10,12 @@ import {
 import teams from "./constants/teams";
 import Team from "./components/Team/index";
 import { primary, secondary } from "@afnexus/hummingbird-ui-assets";
+import { useRouter } from "next/router";
 
 type LandingBodyProps = {};
 
 export default function LandingBody(props: LandingBodyProps) {
+  const router = useRouter();
   return (
     <Box
       w="100vw"
@@ -100,7 +102,14 @@ export default function LandingBody(props: LandingBodyProps) {
           <Text fontSize="lg" mb={5}>
             Do you think you have what it takes to join our team?
           </Text>
-          <Button color={primary[500]} backgroundColor={primary[200]} size="lg">
+          <Button
+            onClick={() =>
+              router.push("https://form.gov.sg/#!/6379c4c8d4118f0012a30482")
+            }
+            color={primary[500]}
+            backgroundColor={primary[200]}
+            size="lg"
+          >
             Sign up!
           </Button>
         </Box>
