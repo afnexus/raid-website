@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - raid-website
 on:
   push:
     branches:
-      - develop
+      - cicd/azure-web-service
   workflow_dispatch:
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
           yarn build
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip * .next
+        run: zip -r release.zip * .next .node_modules
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
