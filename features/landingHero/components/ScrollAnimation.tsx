@@ -1,25 +1,18 @@
-import { motion, useScroll, useTransform } from "framer-motion";
 import React, {
   CanvasHTMLAttributes,
-  RefObject,
   useCallback,
   useEffect,
   useRef,
 } from "react";
 import { draw } from "../utils/raid-draw";
-import ScrollDownPrompt from "./ScrollDownPrompt";
 
 export type ScrollAnimationProps = CanvasHTMLAttributes<HTMLCanvasElement> & {
   scale: number;
-  scrollBoxRef: RefObject<HTMLDivElement>;
 };
 
 export default function ScrollAnimation(props: ScrollAnimationProps) {
-  const { scale, scrollBoxRef } = props;
+  const { scale } = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  const { scrollYProgress } = useScroll({ target: scrollBoxRef });
-  const opacity = useTransform(scrollYProgress, [0, 0.9, 1], [1, 1, 0]);
 
   const onDraw = useCallback(
     (resize?: boolean) => {
@@ -60,10 +53,5 @@ export default function ScrollAnimation(props: ScrollAnimationProps) {
     return () => window.removeEventListener("resize", onResize);
   }, [onDraw]);
 
-  return (
-    <motion.div style={{ opacity }}>
-      <ScrollDownPrompt />
-      <canvas ref={canvasRef} {...props} />
-    </motion.div>
-  );
+  return <canvas ref={canvasRef} {...props} />;
 }

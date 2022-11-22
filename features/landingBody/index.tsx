@@ -66,7 +66,6 @@ export default function LandingBody(props: LandingBodyProps) {
               xl: "repeat(4, 1fr)",
             }}
             gap={4}
-            padding={4}
           >
             {teams.map((team, i) => (
               <GridItem colSpan={1} key={i}>
