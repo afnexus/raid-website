@@ -11,6 +11,9 @@ export default function Navbar(props: NavbarProps) {
         <Button onClick={() => router.push("/")} variant="ghost">
           Home
         </Button>
+        <Button onClick={() => router.push("/events")} variant="ghost">
+          Events
+        </Button>
         <Button onClick={() => router.push("/blog")} variant="ghost">
           Blog
         </Button>

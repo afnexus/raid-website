@@ -1,19 +1,19 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { PostData } from "../types";
+import { EventData } from "../types";
 
-const postsDirectory = path.join(process.cwd(), "content/posts");
+const eventsDirectory = path.join(process.cwd(), "content/events");
 
-export function getSortedPostsData() {
+export function getSortedEventsData() {
   // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
+  const fileNames = fs.readdirSync(eventsDirectory);
+  const allEventsData = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, "");
 
     // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName);
+    const fullPath = path.join(eventsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     // Use gray-matter to parse the post metadata section
@@ -26,7 +26,7 @@ export function getSortedPostsData() {
     };
   });
   // Sort posts by date
-  return (allPostsData as any as PostData[]).sort(
+  return (allEventsData as any as EventData[]).sort(
     ({ date: a }, { date: b }) => {
       if (!a || !b) return 0;
       if (a < b) {
