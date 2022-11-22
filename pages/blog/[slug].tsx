@@ -41,9 +41,11 @@ export default function BlogPostPage(props: BlogPostPageProps) {
         )}
         {description && <Text>{description}</Text>}
         {tags && (
-          <Box mt={3} display="flex" alignItems="center" gap={3}>
+          <Box mt={3}>
             {tagsAsArray.map((tag, i) => (
-              <Tag key={i}>{tag}</Tag>
+              <Tag key={i} mr={2} mb={2}>
+                {tag}
+              </Tag>
             ))}
           </Box>
         )}
