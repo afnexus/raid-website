@@ -11,7 +11,7 @@ export default function Navbar(props: NavbarProps) {
       position="absolute"
       justifyContent="center"
       zIndex={1000}
-      m={3}
+      my={3}
     >
       <Container maxW="container.xl" textAlign="center">
         <Button onClick={() => router.push("/")} variant="ghost">

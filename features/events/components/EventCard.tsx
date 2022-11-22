@@ -8,7 +8,7 @@ import {
   Heading,
   Tag,
   Text,
-  Stack
+  Stack,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
@@ -33,12 +33,12 @@ export default function EventCard(props: EventCardProps) {
       backgroundColor={primary[800]}
       onClick={() => router.push(`/events/${id}`)}
       cursor="pointer"
-      direction={{ base: 'column', sm: 'row' }}
+      direction={{ sm: "row" }}
     >
       <Stack padding={5} justifyContent="center">
-        <Heading size={"2xl"}>{parsedDate.format('MMM')}</Heading>
-        <Heading>{parsedDate.format('D')}</Heading>
-        <Heading size={"md"}>{parsedDate.format('YYYY')}</Heading>
+        <Heading size={"2xl"}>{parsedDate.format("MMM")}</Heading>
+        <Heading>{parsedDate.format("D")}</Heading>
+        <Heading size={"md"}>{parsedDate.format("YYYY")}</Heading>
       </Stack>
       <Stack>
         <CardBody>
