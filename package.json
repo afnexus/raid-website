@@ -9,10 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@afnexus/hummingbird-ui-assets": "^1.2.0",
+    "@chakra-ui/icons": "^2.0.12",
     "@chakra-ui/react": "^2.4.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@fontsource/inter": "^4.5.14",
+    "@nikolovlazar/chakra-ui-prose": "^1.2.1",
+    "@types/markdown-it": "^12.2.3",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
@@ -20,6 +24,8 @@
     "eslint-config-next": "13.0.3",
     "flubber": "^0.4.2",
     "framer-motion": "^6",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^13.0.1",
     "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
