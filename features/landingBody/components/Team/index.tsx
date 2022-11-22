@@ -30,7 +30,6 @@ export default function Team(props: TeamProps) {
       <CardHeader textAlign={"center"}>
         <Heading
           size="lg"
-          textTransform="uppercase"
           bgGradient={`linear(to-r, ${primary[200]}, ${primary[100]} , ${secondary[400]})`}
           bgClip="text"
         >
