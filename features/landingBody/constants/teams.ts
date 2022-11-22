@@ -28,13 +28,13 @@ const teams = [
     name: "Plans",
     subtitle: "Plans & Architecting",
     description: "This office does the digital master-planning for our organization's digital future with digital solution architects.",
-    image: "https://cdn-icons-png.flaticon.com/512/2092/2092663.png",
+    image: "https://cdn-icons-png.flaticon.com/512/1624/1624169.png",
   },
   {
     name: "GRIFFIN",
     subtitle: "A Valued Partner",
     description: "While not an office under RAiD, GRIFFIN is a strong partner for all our teams. The visionary office set out to rethink and redesign our organization and the way we work, and through that process, birthed the idea of forming RAiD. ",
-    image: "https://cdn-icons-png.flaticon.com/512/2092/2092663.png",
+    image: "https://cdn-icons-png.flaticon.com/512/553/553363.png",
   },
 ];
 
