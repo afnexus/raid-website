@@ -6,7 +6,13 @@ export type NavbarProps = {};
 export default function Navbar(props: NavbarProps) {
   const router = useRouter();
   return (
-    <Box w="100vw" position="fixed" justifyContent="center" zIndex={1000} m={3}>
+    <Box
+      w="100vw"
+      position="absolute"
+      justifyContent="center"
+      zIndex={1000}
+      my={3}
+    >
       <Container maxW="container.xl" textAlign="center">
         <Button onClick={() => router.push("/")} variant="ghost">
           Home

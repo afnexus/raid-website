@@ -13,7 +13,7 @@ Inspired by how the original DOOM used smartly used optical illusions to make th
 
 ### Setting Up the Draw Function
 
-I decieded to use the html5 canvas element so that I would have more precise control of how the svgs are transformed and rendered. To do this, I first created a canvas element, and added a ref to it. This ref will allow my draw function to access the canvas's context, enabling it to draw onto the canvas.
+I decided to use the html5 canvas element so that I would have more precise control of how the svgs are transformed and rendered. To do this, I first created a canvas element, and added a ref to it. This ref will allow my draw function to access the canvas's context, enabling it to draw onto the canvas.
 
 ```
 //ScrollAnimation.tsx
