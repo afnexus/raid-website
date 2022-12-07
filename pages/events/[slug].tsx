@@ -97,5 +97,5 @@ export async function getStaticProps({
 }: {
   params: { slug: string };
 }) {
-  return getFileReadStaticProps(slug);
+  return getFileReadStaticProps(slug, "events");
 }

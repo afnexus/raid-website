@@ -17,8 +17,13 @@ export const getFileReadStaticPaths = (dir: string) => {
   };
 };
 
-export const getFileReadStaticProps = (slug: string) => {
-  const fileName = fs.readFileSync(`content/posts/${slug}.md`, "utf-8");
+type FileReadType = "events" | "posts";
+
+export const getFileReadStaticProps = (
+  slug: string,
+  readType: FileReadType
+) => {
+  const fileName = fs.readFileSync(`content/${readType}/${slug}.md`, "utf-8");
   const { data: frontmatter, content } = matter(fileName);
   return {
     props: {
