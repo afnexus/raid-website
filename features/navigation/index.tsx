@@ -23,6 +23,9 @@ export default function Navbar(props: NavbarProps) {
         <Button onClick={() => router.push("/blog")} variant="ghost">
           Blog
         </Button>
+        <Button onClick={() => router.push("/innofest")} variant="ghost">
+          InnoFest
+        </Button>
         <Button
           onClick={() =>
             router.push("https://form.gov.sg/61ea66776c89fd001206bed0")
