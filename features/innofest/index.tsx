@@ -208,7 +208,7 @@ export default function InnoFest(props: LandingBodyProps) {
             mb={5}
             textAlign= 'center'
           >
-            <font color="00D1FF" >Solv-athon</font>
+            <font color="00D1FF" >Solva-thon</font>
           </Heading>
           <Text fontSize="2xl" mb={5}>
             Have a pain point you want to see solved by innovation but have not been heard? Have a process, physical or digital innovation idea that can address pain points? 
