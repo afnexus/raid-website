@@ -9,7 +9,6 @@ import {
   Divider,
   CSSReset,
 } from "@chakra-ui/react";
-import md from "markdown-it";
 import { useMemo } from "react";
 import { PostData } from "../../features/blog/types";
 import { Prose } from "@nikolovlazar/chakra-ui-prose";
@@ -17,11 +16,19 @@ import {
   getFileReadStaticPaths,
   getFileReadStaticProps,
 } from "../../features/file-read";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { components } from "../../features/file-read/mdx-components";
 
-export type BlogPostPageProps = { frontmatter: PostData; content: string };
+export type BlogPostPageProps = {
+  frontmatter: PostData;
+  content: MDXRemoteSerializeResult;
+};
 
-export default function BlogPostPage(props: BlogPostPageProps) {
-  const { id, date, title, description, author, tags } = props.frontmatter;
+export default function BlogPostPage({
+  frontmatter,
+  content,
+}: BlogPostPageProps) {
+  const { id, date, title, description, author, tags } = frontmatter;
   const tagsAsArray = useMemo(() => {
     if (!tags) return [];
     return tags.split(", ");
@@ -61,10 +68,7 @@ export default function BlogPostPage(props: BlogPostPageProps) {
         )}
         <Divider mt={3} />
         <Prose>
-          <Box
-            mt={5}
-            dangerouslySetInnerHTML={{ __html: md().render(props.content) }}
-          />
+          <MDXRemote {...content} components={components} />
         </Prose>
       </Container>
     </Box>
@@ -82,5 +86,5 @@ export async function getStaticProps({
 }: {
   params: { slug: string };
 }) {
-  return getFileReadStaticProps(slug, "posts");
+  return await getFileReadStaticProps(slug, "posts");
 }

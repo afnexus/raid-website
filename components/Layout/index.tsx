@@ -13,7 +13,7 @@ export default function Layout({ children }: LayoutProps) {
       <Box
         //bgGradient={`linear(to-r, black, ${primary[400]}, ${secondary[400]})`}
         backgroundColor={primary[700]}
-        bgImage="nightSkyBackground.svg"
+        bgImage="/nightSkyBackground.svg"
         backgroundSize="300px 300px"
       >
         <main>{children}</main>

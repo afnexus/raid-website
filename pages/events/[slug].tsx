@@ -6,12 +6,10 @@ import {
   Button,
   Text,
   Container,
-  Avatar,
   Divider,
   CSSReset,
   Stack,
 } from "@chakra-ui/react";
-import md from "markdown-it";
 import { useMemo } from "react";
 import { EventData } from "../../features/events/types";
 import { Prose } from "@nikolovlazar/chakra-ui-prose";
@@ -20,13 +18,20 @@ import {
   getFileReadStaticPaths,
   getFileReadStaticProps,
 } from "../../features/file-read";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { components } from "../../features/file-read/mdx-components";
 
-export type EventPostPageProps = { frontmatter: EventData; content: string };
+export type EventPostPageProps = {
+  frontmatter: EventData;
+  content: MDXRemoteSerializeResult;
+};
 
-export default function BlogPostPage(props: EventPostPageProps) {
+export default function BlogPostPage({
+  frontmatter,
+  content,
+}: EventPostPageProps) {
   const router = useRouter();
-  const { id, date, title, description, tags, location, url } =
-    props.frontmatter;
+  const { id, date, title, description, tags, location, url } = frontmatter;
   const tagsAsArray = useMemo(() => {
     if (!tags) return [];
     return tags.split(", ");
@@ -76,10 +81,7 @@ export default function BlogPostPage(props: EventPostPageProps) {
 
         <Divider mt={3} />
         <Prose>
-          <Box
-            mt={5}
-            dangerouslySetInnerHTML={{ __html: md().render(props.content) }}
-          />
+          <MDXRemote {...content} components={components} />
         </Prose>
       </Container>
     </Box>
