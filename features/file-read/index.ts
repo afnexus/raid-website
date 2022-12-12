@@ -1,5 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
+import { serialize } from "next-mdx-remote/serialize";
 
 export const getFileReadStaticPaths = (dir: string) => {
   // Get list of all files from our posts directory
@@ -19,12 +20,13 @@ export const getFileReadStaticPaths = (dir: string) => {
 
 type FileReadType = "events" | "posts";
 
-export const getFileReadStaticProps = (
+export const getFileReadStaticProps = async (
   slug: string,
   readType: FileReadType
 ) => {
   const fileName = fs.readFileSync(`content/${readType}/${slug}.md`, "utf-8");
-  const { data: frontmatter, content } = matter(fileName);
+  const { data: frontmatter, content: rawContent } = matter(fileName);
+  const content = await serialize(rawContent);
   return {
     props: {
       frontmatter,
