@@ -60,14 +60,6 @@ export default function InnoFest(props: LandingBodyProps) {
 
   return (
     <>
-      <Box style={{ padding: 35 }}>
-        <Image
-          width="125px"
-          src="https://i.imgur.com/uViUK5S.png"
-          alt="SWiFT"
-        />
-      </Box>
-
       <Stack overflowX="hidden">
         <Box
           w="100vw"
@@ -75,34 +67,36 @@ export default function InnoFest(props: LandingBodyProps) {
           color="white"
           display="flex"
           justifyContent="center"
+          mt="6em"
         >
           <Container
-            maxW={"container.xl"}
+            maxW={"container.lg"}
             display="flex"
             alignItems="center"
             flexDirection="column"
           >
+            <Image
+              width="125px"
+              src="https://i.imgur.com/uViUK5S.png"
+              alt="SWiFT"
+            />
             <Box
               marginTop={"0"}
               textAlign="left"
-              py={{ base: 20, md: 20 }}
-              px={{ base: 8, md: 20 }}
+              py={{ base: 10, md: 20 }}
+              px={{ base: 5, md: 20 }}
               boxShadow={"base"}
               rounded={"3xl"}
               backgroundColor={primary[800]}
-              w="fit-content"
+              w="100%"
+              maxW="90vw"
             >
-              <Heading
-                size={"3xl"}
-                mb={10}
-                textAlign="center"
-                color={nYellow[400]}
-              >
+              <Heading size={"3xl"} mb={10} color={nYellow[400]}>
                 InnoFest 22/23
                 <br />
               </Heading>
 
-              <Text fontSize="2xl" mb={5}>
+              <Text fontSize={{ base: "md", lg: "xl" }} mb={5}>
                 <Text as="span" color={nYellow[400]}>
                   SW<i>i</i>FT
                 </Text>{" "}
@@ -115,7 +109,7 @@ export default function InnoFest(props: LandingBodyProps) {
                 innovation movement and charts the way ahead for our Innovation
                 journey!
               </Text>
-              <Text fontSize="2xl" mb={5}>
+              <Text fontSize={{ base: "md", lg: "xl" }} mb={5}>
                 The events for this InnoFest have been specially curated for us
                 to discover together how we can <b>“Make Innovation Joyful”</b>.
                 Here is a glimpse of what you can look forward to!
@@ -203,9 +197,17 @@ export default function InnoFest(props: LandingBodyProps) {
                 </Table>
               </TableContainer>
               <br />
-              <Image src="https://imgur.com/XL3ZnkE.png" alt="" />
+              <Image
+                src="https://imgur.com/XL3ZnkE.png"
+                alt=""
+                maxW={400}
+                w="100%"
+              />
               <Grid
-                templateColumns="repeat(4, 1fr)"
+                templateColumns={{
+                  base: "repeat(2, 1fr) ",
+                  xl: "repeat(4, 1fr)",
+                }}
                 gap={3}
                 backgroundColor={primary[800]}
               >
@@ -224,40 +226,34 @@ export default function InnoFest(props: LandingBodyProps) {
             <Box
               marginTop={24}
               textAlign="left"
-              py={{ base: 20, md: 20 }}
-              px={{ base: 8, md: 20 }}
+              py={{ base: 10, md: 20 }}
+              px={{ base: 5, md: 20 }}
               boxShadow={"base"}
               rounded={"3xl"}
               backgroundColor={primary[800]}
-              w="fit-content"
+              w="100%"
               id="solvathon"
             >
-              <Heading
-                size={"2xl"}
-                pb={5}
-                mb={5}
-                textAlign="center"
-                color={nYellow[400]}
-              >
+              <Heading size={"2xl"} mb={5} color={nYellow[400]}>
                 Solva-thon
               </Heading>
-              <Text fontSize="2xl" mb={5}>
+              <Text fontSize={{ base: "md", lg: "xl" }} mb={5}>
                 Have a pain point you want to see solved by innovation but have
                 not been heard? Have a process, physical or digital innovation
                 idea that can address pain points? We want to hear from you!
               </Text>
-              <Text fontSize="2xl" mb={2}>
+              <Text fontSize={{ base: "md", lg: "xl" }} mb={2}>
                 In the lead up to InnoFest 22/23, SW<i>i</i>FT will be running
                 the <b>Solva-thon</b> - A campaign to source for innovative
                 ideas to SOLVE pain points from our people!
               </Text>
               <Image
                 src="https://eventornado-files.ams3.cdn.digitaloceanspaces.com/blogposts/1/the-rise-of-online-hackathons.png"
-                height="300px"
-                margin="auto"
+                // height="300px"
+                mb={5}
                 alt="hackathon"
               />
-              <Heading size={"lg"} mb={5} color={nSecondary[400]}>
+              <Heading size={"lg"} mb={5} color={nYellow[400]}>
                 Event Details
               </Heading>
               <List spacing={3}>
@@ -307,10 +303,11 @@ export default function InnoFest(props: LandingBodyProps) {
               w="fit-content"
             >
               <Heading
-                size={"3xl"}
+                size={"2xl"}
                 bgGradient={`linear(to-r, ${primary[300]}, ${primary[100]} , ${secondary[500]})`}
                 bgClip="text"
                 mb={5}
+                textAlign="center"
               >
                 Time before next Information Drop
               </Heading>
