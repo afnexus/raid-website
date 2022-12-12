@@ -9,17 +9,26 @@ import {
   Divider,
   CSSReset,
 } from "@chakra-ui/react";
-import fs from "fs";
-import matter from "gray-matter";
-import md from "markdown-it";
 import { useMemo } from "react";
 import { PostData } from "../../features/blog/types";
 import { Prose } from "@nikolovlazar/chakra-ui-prose";
+import {
+  getFileReadStaticPaths,
+  getFileReadStaticProps,
+} from "../../features/file-read";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { components } from "../../features/file-read/mdx-components";
 
-export type BlogPostPageProps = { frontmatter: PostData; content: string };
+export type BlogPostPageProps = {
+  frontmatter: PostData;
+  content: MDXRemoteSerializeResult;
+};
 
-export default function BlogPostPage(props: BlogPostPageProps) {
-  const { id, date, title, description, author, tags } = props.frontmatter;
+export default function BlogPostPage({
+  frontmatter,
+  content,
+}: BlogPostPageProps) {
+  const { id, date, title, description, author, tags } = frontmatter;
   const tagsAsArray = useMemo(() => {
     if (!tags) return [];
     return tags.split(", ");
@@ -59,10 +68,7 @@ export default function BlogPostPage(props: BlogPostPageProps) {
         )}
         <Divider mt={3} />
         <Prose>
-          <Box
-            mt={5}
-            dangerouslySetInnerHTML={{ __html: md().render(props.content) }}
-          />
+          <MDXRemote {...content} components={components} />
         </Prose>
       </Container>
     </Box>
@@ -71,19 +77,7 @@ export default function BlogPostPage(props: BlogPostPageProps) {
 
 // Generating the paths for each post
 export async function getStaticPaths() {
-  // Get list of all files from our posts directory
-  const files = fs.readdirSync("content/posts");
-  // Generate a path for each one
-  const paths = files.map((fileName) => ({
-    params: {
-      slug: fileName.replace(".md", ""),
-    },
-  }));
-  // return list of paths
-  return {
-    paths,
-    fallback: false,
-  };
+  return getFileReadStaticPaths("content/posts");
 }
 
 // Generate the static props for the page
@@ -92,12 +86,5 @@ export async function getStaticProps({
 }: {
   params: { slug: string };
 }) {
-  const fileName = fs.readFileSync(`content/posts/${slug}.md`, "utf-8");
-  const { data: frontmatter, content } = matter(fileName);
-  return {
-    props: {
-      frontmatter,
-      content,
-    },
-  };
+  return await getFileReadStaticProps(slug, "posts");
 }
