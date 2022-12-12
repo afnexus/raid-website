@@ -1,8 +1,8 @@
 name: Check if Nextjs app builds
 
 on:
-  push:
-    branches: [stag, prod]
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
   build:
