@@ -2,12 +2,9 @@ import { primary } from "@afnexus/hummingbird-ui-assets";
 import {
   Avatar,
   Box,
-  Button,
-  ButtonGroup,
   Card,
   CardBody,
   CardFooter,
-  CardHeader,
   Divider,
   Heading,
   Tag,
@@ -15,9 +12,9 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
-import { PostData } from "../types";
+import { BlogData } from "../types";
 
-export type BlogCardProps = PostData;
+export type BlogCardProps = BlogData;
 
 export default function BlogCard(props: BlogCardProps) {
   const router = useRouter();

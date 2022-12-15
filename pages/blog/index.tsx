@@ -1,10 +1,11 @@
-import { Box, Container, Grid, Heading } from "@chakra-ui/react";
+import { Container, Grid, Heading } from "@chakra-ui/react";
 import BlogCard from "../../features/blog/components/BlogCard";
-import { PostData } from "../../features/blog/types";
-import { getSortedPostsData } from "../../features/blog/utils/posts";
+import { BlogData } from "../../features/blog/types";
+import { getSortedPostsData } from "../../features/utils/posts";
+import path from "path";
 
 export type BlogPageProps = {
-  allPostsData: PostData[];
+  allPostsData: BlogData[];
 };
 
 export default function BlogPage(props: BlogPageProps) {
@@ -28,7 +29,7 @@ export default function BlogPage(props: BlogPageProps) {
 }
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = getSortedPostsData(path.join(process.cwd(), "content/blog"));
   return {
     props: {
       allPostsData,

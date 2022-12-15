@@ -19,7 +19,7 @@ export const getFileReadStaticPaths = (dir: string) => {
   };
 };
 
-type FileReadType = "events" | "posts";
+type FileReadType = "events" | "blog";
 
 export const getFileReadStaticProps = async (
   slug: string,
