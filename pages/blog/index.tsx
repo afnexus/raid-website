@@ -8,7 +8,6 @@ export type BlogPageProps = {
 };
 
 export default function BlogPage(props: BlogPageProps) {
-  console.log(props.allPostsData);
   const { allPostsData } = props;
   return (
     <Container minH="100vh" pt={20} maxW="container.xl">

@@ -6,11 +6,11 @@ import { PostData } from "../types";
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
 export function getSortedPostsData() {
-  // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory);
+  // Get file names under /posts other than template.md
+  const fileNames = fs.readdirSync(postsDirectory).filter(fileName => !fileName.includes("template.md"));
   const allPostsData = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, "");
+    const id = fileName.replace(/\.md$/, "") ;
 
     // Read markdown file as string
     const fullPath = path.join(postsDirectory, fileName);

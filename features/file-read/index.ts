@@ -5,6 +5,7 @@ import { serialize } from "next-mdx-remote/serialize";
 export const getFileReadStaticPaths = (dir: string) => {
   // Get list of all files from our posts directory
   const files = fs.readdirSync(dir);
+  
   // Generate a path for each one
   const paths = files.map((fileName) => ({
     params: {

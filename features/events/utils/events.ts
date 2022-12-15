@@ -6,8 +6,8 @@ import { EventData } from "../types";
 const eventsDirectory = path.join(process.cwd(), "content/events");
 
 export function getSortedEventsData() {
-  // Get file names under /posts
-  const fileNames = fs.readdirSync(eventsDirectory);
+  // Get file names under /events other than template.md
+  const fileNames = fs.readdirSync(eventsDirectory).filter(fileName => !fileName.includes("template.md"));
   const allEventsData = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, "");
