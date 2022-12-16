@@ -1,8 +1,8 @@
 import ScrollAnimation from "./components/ScrollAnimation";
-import { Box } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import ScrollDownPrompt from "./components/ScrollDownPrompt";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Box } from "@mui/material";
 
 type LandingHeroProps = {};
 
@@ -26,23 +26,27 @@ export default function LandingHero(props: LandingHeroProps) {
   }, []);
 
   return (
-    <Box ref={scrollBoxRef} h={`${scrollYScale * 110}vh`}>
-      <Box
-        display="flex"
-        w="100vw"
-        h="100vh"
-        alignItems="center"
-        justifyContent="center"
-        position="fixed"
-      >
-        <motion.div style={{ opacity: opacity }}>
+    <motion.div style={{ opacity: opacity, overflowX: "hidden" }}>
+      <Box ref={scrollBoxRef} sx={{ height: `${scrollYScale * 110}vh` }}>
+        <Box
+          sx={{
+            display: "flex",
+            width: "100vw",
+            height: "100vh",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "fixed",
+            top: 0,
+            left: 0,
+          }}
+        >
           <ScrollDownPrompt />
           <ScrollAnimation
             scale={scrollYScale}
             style={{ width: "100vw", height: "100vh" }}
           />
-        </motion.div>
+        </Box>
       </Box>
-    </Box>
+    </motion.div>
   );
 }

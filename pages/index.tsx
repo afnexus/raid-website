@@ -1,7 +1,7 @@
+import { Stack } from "@mui/material";
 import Head from "next/head";
 import LandingBody from "../features/landingBody";
 import LandingHero from "../features/landingHero";
-import { Stack } from "@chakra-ui/react";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
         />
         <link rel="icon" href="/raid.svg" />
       </Head>
-      <Stack overflowX="hidden">
+      <Stack overflow="hidden">
         <LandingHero />
         <LandingBody />
       </Stack>
