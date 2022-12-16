@@ -10,7 +10,7 @@ import {
   CSSReset,
 } from "@chakra-ui/react";
 import { useMemo } from "react";
-import { PostData } from "../../features/blog/types";
+import { BlogData } from "../../features/blog/types";
 import { Prose } from "@nikolovlazar/chakra-ui-prose";
 import {
   getFileReadStaticPaths,
@@ -20,7 +20,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { components } from "../../features/file-read/mdx-components";
 
 export type BlogPostPageProps = {
-  frontmatter: PostData;
+  frontmatter: BlogData;
   content: MDXRemoteSerializeResult;
 };
 
@@ -77,7 +77,7 @@ export default function BlogPostPage({
 
 // Generating the paths for each post
 export async function getStaticPaths() {
-  return getFileReadStaticPaths("content/posts");
+  return getFileReadStaticPaths("content/blog");
 }
 
 // Generate the static props for the page
@@ -86,5 +86,5 @@ export async function getStaticProps({
 }: {
   params: { slug: string };
 }) {
-  return await getFileReadStaticProps(slug, "posts");
+  return await getFileReadStaticProps(slug, "blog");
 }
