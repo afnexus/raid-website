@@ -1,15 +1,6 @@
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Center,
-  Divider,
-  Heading,
-  Image,
-  Text,
-} from "@chakra-ui/react";
 import { primary, secondary } from "@afnexus/hummingbird-ui-assets";
-
+import { Card, CardContent, Typography, Box } from "@mui/material";
+import Image from "next/image";
 type TeamProps = {
   name: string;
   description: string;
@@ -20,42 +11,44 @@ type TeamProps = {
 export default function Team(props: TeamProps) {
   const { name, description, image, subtitle } = props;
   return (
-    <Card
-      color={"white"}
-      background={primary[800]}
-      rounded="3xl"
-      h="100%"
-      mb={3}
-    >
-      <CardHeader textAlign={"center"}>
-        <Heading
-          size="lg"
-          bgGradient={`linear(to-r, ${primary[200]}, ${primary[100]} , ${secondary[400]})`}
-          bgClip="text"
+    <Card sx={{ height: "100%", p: 2, backgroundColor: primary[800] }}>
+      <CardContent>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: 200,
+          }}
         >
-          {name}
-        </Heading>
-        {subtitle && (
-          <Text size="sm">
-            <b>{subtitle}</b>
-          </Text>
-        )}
-      </CardHeader>
-      <CardBody textAlign={"center"}>
-        <Center>
           <Image
-            alt={name}
-            boxSize={120}
-            display="flex"
-            objectFit="cover"
+            width={130}
+            height={130}
             src={image}
-            filter={`brightness(0) saturate(100%) invert(27%) sepia(10%) saturate(5263%) hue-rotate(194deg) brightness(300%) contrast(80%)`}
-            padding={1}
-            marginBottom={3}
+            style={{
+              objectFit: "contain",
+              filter: `brightness(0) saturate(100%) invert(27%) sepia(10%) saturate(5263%) hue-rotate(194deg) brightness(300%) contrast(80%)`,
+            }}
+            alt={name}
           />
-        </Center>
-        <Text textAlign="left">{description}</Text>
-      </CardBody>
+        </Box>
+        <Typography
+          variant="h4"
+          sx={{
+            background: `linear-gradient(to right, ${primary[200]}, ${primary[100]} , ${secondary[500]})`,
+            "background-clip": "text",
+            "text-fill-color": "transparent",
+          }}
+        >
+          <b>{name}</b>
+        </Typography>
+        {subtitle && (
+          <Typography variant="h5" sx={{ color: secondary[200] }}>
+            <b>{subtitle}</b>
+          </Typography>
+        )}
+        <Typography>{description}</Typography>
+      </CardContent>
     </Card>
   );
 }

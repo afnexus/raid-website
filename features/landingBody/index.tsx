@@ -1,117 +1,105 @@
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  GridItem,
-  Heading,
-  Text,
-} from "@chakra-ui/react";
 import teams from "./constants/teams";
 import Team from "./components/Team/index";
 import { primary, secondary } from "@afnexus/hummingbird-ui-assets";
 import { useRouter } from "next/router";
-
+import { Box, Container, Grid, Button, Stack } from "@mui/material";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 type LandingBodyProps = {};
 
 export default function LandingBody(props: LandingBodyProps) {
   const router = useRouter();
   return (
     <Box
-      w="100vw"
-      h="100%"
-      color="white"
-      display="flex"
-      justifyContent="center"
+      sx={{
+        w: "100vw",
+        h: "100%",
+        display: "flex",
+        justifyContent: "center",
+      }}
     >
-      <Container
-        maxW={"container.xl"}
-        display="flex"
-        alignItems="center"
-        flexDirection="column"
-      >
-        <Box
-          textAlign="left"
-          py={{ base: 20, md: 20 }}
-          px={{ base: 8, md: 20 }}
-          boxShadow={"base"}
-          rounded={"3xl"}
-          backgroundColor={primary[800]}
-          w="fit-content"
-          // bgImage="nightSkyBackground.svg"
+      <Container>
+        <Paper
+          sx={{
+            p: 5,
+            py: 8,
+            mb: 10,
+            backgroundColor: primary[800],
+          }}
         >
-          <Heading
-            size={"3xl"}
-            bgGradient={`linear(to-r, ${primary[300]}, ${primary[100]} , ${secondary[500]})`}
-            bgClip="text"
-            mb={5}
+          <Typography
+            variant="h3"
+            sx={{
+              background: `linear-gradient(to right, ${primary[200]}, ${primary[100]} , ${secondary[500]})`,
+              backgroundClip: "text",
+              textFillColor: "transparent",
+            }}
           >
-            What is RAiD?
-          </Heading>
-          <Text fontSize="lg">
+            <b>What is RAiD?</b>
+          </Typography>
+          <Typography fontSize="large">
             RAiD is a new agency focused on bringing <b>agile, innovative</b>{" "}
             and<b> digital transformation</b> to our organization.
-          </Text>
-        </Box>
+          </Typography>
+        </Paper>
 
-        <Box marginTop={"48"}>
-          <Heading padding="5" size="2xl" textAlign="center">
+        <Box sx={{ mb: 10 }}>
+          <Typography variant="h5" sx={{ mb: 3 }}>
             Our Teams
-          </Heading>
+          </Typography>
 
-          <Grid
-            templateColumns={{
-              base: "repeat(1,1fr)",
-              md: "repeat(2,1fr)",
-              xl: "repeat(3, 1fr)",
-            }}
-            gap={4}
-          >
+          <Grid container spacing={3}>
             {teams.map((team, i) => (
-              <GridItem colSpan={1} key={i}>
+              <Grid item xs={12} sm={6} md={4} key={i}>
                 <Team
                   name={team.name}
                   subtitle={team.subtitle}
                   description={team.description}
                   image={team.image}
                 />
-              </GridItem>
+              </Grid>
             ))}
           </Grid>
         </Box>
-        <Box
-          marginTop={48}
-          mb={48}
-          textAlign="left"
-          py={{ base: 20, md: 20 }}
-          px={{ base: 8, md: 20 }}
-          boxShadow={"base"}
-          rounded={"3xl"}
-          backgroundColor={primary[800]}
-          w="fit-content"
+        <Paper
+          sx={{
+            mb: 20,
+            p: 5,
+            py: 8,
+            display: "flex",
+            alignItems: "center",
+            gap: 3,
+            backgroundColor: primary[800],
+          }}
         >
-          <Heading
-            size={"2xl"}
-            bgGradient={`linear(to-r, ${primary[300]}, ${primary[100]} , ${secondary[500]})`}
-            bgClip="text"
-            pb={5}
-          >
-            We are recruiting!
-          </Heading>
-          <Text fontSize="lg" mb={5}>
-            Do you think you have what it takes to join our team?
-          </Text>
-          <Button
-            onClick={() =>
-              router.push("https://form.gov.sg/61ea66776c89fd001206bed0")
-            }
-            color={primary[500]}
-            backgroundColor={primary[200]}
-            size="lg"
-          >
-            Sign up!
-          </Button>
-        </Box>
+          <Stack spacing={1}>
+            <Typography
+              variant="h3"
+              sx={{
+                background: `linear-gradient(to right, ${primary[200]}, ${primary[100]} , ${secondary[500]})`,
+                "background-clip": "text",
+                "text-fill-color": "transparent",
+              }}
+            >
+              <b>We are recruiting!</b>
+            </Typography>
+            <Typography>
+              Do you think you have what it takes to join our team?
+            </Typography>
+            <Box>
+              <Button
+                onClick={() =>
+                  router.push("https://form.gov.sg/61ea66776c89fd001206bed0")
+                }
+                color="primary"
+                sx={{ color: primary[300] }}
+                variant="contained"
+              >
+                Sign up
+              </Button>
+            </Box>
+          </Stack>
+        </Paper>
       </Container>
     </Box>
   );

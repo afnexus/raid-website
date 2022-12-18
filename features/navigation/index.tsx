@@ -1,41 +1,87 @@
-import { Container, Box, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { nYellow } from "@afnexus/hummingbird-ui-assets"
+import {
+  Box,
+  Button,
+  Container,
+  Typography,
+  Stack,
+  Drawer,
+  useMediaQuery,
+  useTheme,
+  IconButton,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { primary } from "@afnexus/hummingbird-ui-assets";
+import { PropsWithChildren, useState } from "react";
+import { navLinks } from "./nav-links";
 
 export type NavbarProps = {};
 
-export default function Navbar(props: NavbarProps) {
+type NavButtonProps = { direction: "row" | "column" };
+
+function NavButtons({
+  direction,
+  children,
+}: PropsWithChildren<NavButtonProps>) {
   const router = useRouter();
   return (
-    <Box
-      w="100vw"
-      position="absolute"
-      justifyContent="center"
-      zIndex={1000}
-      my={3}
-    >
-      <Container maxW="container.xl" textAlign="center">
-        <Button onClick={() => router.push("/")} variant="ghost">
-          Home
-        </Button>
-        <Button onClick={() => router.push("/events")} variant="ghost">
-          Events
-        </Button>
-        <Button onClick={() => router.push("/blog")} variant="ghost">
-          Blog
-        </Button>
+    <Stack direction={direction} spacing={1}>
+      {navLinks.map((navLink, i) => (
         <Button
-          onClick={() =>
-            router.push("https://form.gov.sg/61ea66776c89fd001206bed0")
-          }
-          variant="ghost"
+          key={i}
+          onClick={() => router.push(navLink.url)}
+          {...navLink.buttonProps}
         >
-          Join us
+          {navLink.label}
         </Button>
-        <Button onClick={() => router.push("/innofest")} variant="solid" color={nYellow[400]}>
-          InnoFest
-        </Button>
+      ))}
+      {children}
+    </Stack>
+  );
+}
+
+function MobileMenu() {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  return (
+    <>
+      <IconButton onClick={() => setIsOpen(true)}>
+        <MenuIcon />
+      </IconButton>
+      <Drawer open={isOpen} onClose={() => setIsOpen(false)} anchor="top">
+        <Box sx={{ p: 3 }}>
+          <NavButtons direction="column"></NavButtons>
+        </Box>
+      </Drawer>
+    </>
+  );
+}
+
+export default function Navbar(props: NavbarProps) {
+  const theme = useTheme();
+  const smallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  return (
+    <Box
+      sx={{
+        position: "absolute",
+        zIndex: 999,
+        width: "100vw",
+        background: primary[800],
+      }}
+    >
+      <Container
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          p: 1,
+          pl: 2,
+        }}
+      >
+        <Typography sx={{ fontWeight: 700, fontSize: 20 }}>RAiD</Typography>
+        {smallScreen ? <MobileMenu /> : <NavButtons direction="row" />}
       </Container>
+      {/* <Divider /> */}
     </Box>
   );
 }
