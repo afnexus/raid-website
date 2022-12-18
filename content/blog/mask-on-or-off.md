@@ -6,8 +6,9 @@ author: "KM"
 ---
 
 ## Project Overview
+
 Main Article: [Here](https://medium.com/towards-data-science/detecting-mask-on-off-or-incorrectly-worn-using-yolo-v4-c27911e4eadd)
-In light of covid-19 pandemic, Masks and Personal Protection Equipment (PPE) serves to be one of the best protection against the COVID-19 virus. Masks are one of the most commonly available PPE however, its effectiveness deteriorates if not worn properly. Therefore, by creating an CV algorithm that is able to detect whether mask are worn, worn incorrectly or not worn at all would help to serve the community better. The model has to react fast therefore requiring lesser computational power than computationally heavy model. this makes Yolov4 an ideal algorithm. Yolov4 has consisitently higher average precision at real-time detection(FPS: > 45). In addition Yolov4 is a one-stage object detector thus making it computationally lighter. For more information on Yolov4 perfomance refer to [this]( https://blog.roboflow.com/pp-yolo-beats-Yolov4-object-detection/)
+In light of covid-19 pandemic, Masks and Personal Protection Equipment (PPE) serves to be one of the best protection against the COVID-19 virus. Masks are one of the most commonly available PPE however, its effectiveness deteriorates if not worn properly. Therefore, by creating an CV algorithm that is able to detect whether mask are worn, worn incorrectly or not worn at all would help to serve the community better. The model has to react fast therefore requiring lesser computational power than computationally heavy model. this makes Yolov4 an ideal algorithm. Yolov4 has consisitently higher average precision at real-time detection(FPS: > 45). In addition Yolov4 is a one-stage object detector thus making it computationally lighter. For more information on Yolov4 perfomance refer to [this](https://blog.roboflow.com/pp-yolo-beats-Yolov4-object-detection/)
 
 ### Target Classes
 

@@ -5,18 +5,21 @@
 <!-- Briefly describe what this pull request is about -->
 
 <!-- BUGS ONLY -->
+
 ## Expected behaviour
 
 ## Current behaviour
+
 <!-- /BUGS ONLY -->
 
 ## Steps to test
+
 1. Step 1
 
 ## Screenshots / Videos
 
-| Screenshot |
-| ---------- |
+| Screenshot                  |
+| --------------------------- |
 | <!-- Put the image here --> |
 
 ## Linked PRs / Issue

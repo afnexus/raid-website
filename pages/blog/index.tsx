@@ -29,7 +29,9 @@ export default function BlogPage(props: BlogPageProps) {
 }
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData(path.join(process.cwd(), "content/blog"));
+  const allPostsData = getSortedPostsData(
+    path.join(process.cwd(), "content/blog")
+  );
   return {
     props: {
       allPostsData,
