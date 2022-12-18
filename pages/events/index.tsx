@@ -29,7 +29,9 @@ export default function EventPage(props: EventPageProps) {
 }
 
 export async function getStaticProps() {
-  const allEventsData = getSortedPostsData(path.join(process.cwd(), "content/events"));
+  const allEventsData = getSortedPostsData(
+    path.join(process.cwd(), "content/events")
+  );
   return {
     props: {
       allEventsData,
