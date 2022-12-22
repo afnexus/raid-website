@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@afnexus/hummingbird-ui-assets": "^1.2.0",
@@ -32,5 +34,9 @@
     "react-dom": "18.2.0",
     "typescript": "4.9.3",
     "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.1",
+    "husky": "^8.0.0"
   }
 }
