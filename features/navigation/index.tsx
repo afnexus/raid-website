@@ -1,6 +1,6 @@
 import { Container, Box, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { nYellow } from "@afnexus/hummingbird-ui-assets"
+import { nYellow } from "@afnexus/hummingbird-ui-assets";
 
 export type NavbarProps = {};
 
@@ -32,7 +32,11 @@ export default function Navbar(props: NavbarProps) {
         >
           Join us
         </Button>
-        <Button onClick={() => router.push("/innofest")} variant="solid" color={nYellow[400]}>
+        <Button
+          onClick={() => router.push("/innofest")}
+          variant="solid"
+          color={nYellow[400]}
+        >
           InnoFest
         </Button>
       </Container>

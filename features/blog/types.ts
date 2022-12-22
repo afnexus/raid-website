@@ -1,4 +1,4 @@
-export type PostData = {
+export type BlogData = {
   id: string;
   date?: string;
   title?: string;

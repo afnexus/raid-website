@@ -38,7 +38,7 @@ export default function InnoFest(props: LandingBodyProps) {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const target = new Date("12/22/2022 23:59:59");
+    const target = new Date("12/23/2022 11:59:59");
 
     const Interval = setInterval(() => {
       const now = new Date();
@@ -91,7 +91,7 @@ export default function InnoFest(props: LandingBodyProps) {
               w="100%"
               maxW="90vw"
             >
-              <Heading size={"3xl"} mb={10} color={nYellow[400]}>
+              <Heading size={"3xl"} mb={10} textAlign="center" color={nYellow[400]}>
                 InnoFest 22/23
                 <br />
               </Heading>
@@ -200,7 +200,6 @@ export default function InnoFest(props: LandingBodyProps) {
               <Image
                 src="https://imgur.com/XL3ZnkE.png"
                 alt=""
-                maxW={400}
                 w="100%"
               />
               <Grid
@@ -234,7 +233,7 @@ export default function InnoFest(props: LandingBodyProps) {
               w="100%"
               id="solvathon"
             >
-              <Heading size={"2xl"} mb={5} color={nYellow[400]}>
+              <Heading size={"2xl"} mb={5} textAlign="center" color={nYellow[400]}>
                 Solva-thon
               </Heading>
               <Text fontSize={{ base: "md", lg: "xl" }} mb={5}>

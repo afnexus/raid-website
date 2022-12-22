@@ -7,6 +7,7 @@ url: "https://www.eventbrite.com/e/raid-learning-day-devops-with-gene-kim-ticket
 ---
 
 ## About This Event
+
 Join us on our second RAiD Learning day, a day where we bringing together members and friends of our RAiD community to connect, collaborate and learn about innovation and digital transformation!
 
 ### DIGITAL TRANSFORMATION WITH GENE KIM

@@ -1,7 +1,8 @@
-import { Box, Container, Grid, Heading } from "@chakra-ui/react";
+import { Container, Grid, Heading } from "@chakra-ui/react";
 import EventCard from "../../features/events/components/EventCard";
 import { EventData } from "../../features/events/types";
-import { getSortedEventsData } from "../../features/events/utils/events";
+import { getSortedPostsData } from "../../features/utils/posts";
+import path from "path";
 
 export type EventPageProps = {
   allEventsData: EventData[];
@@ -28,7 +29,9 @@ export default function EventPage(props: EventPageProps) {
 }
 
 export async function getStaticProps() {
-  const allEventsData = getSortedEventsData();
+  const allEventsData = getSortedPostsData(
+    path.join(process.cwd(), "content/events")
+  );
   return {
     props: {
       allEventsData,
