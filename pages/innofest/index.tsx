@@ -154,7 +154,7 @@ export default function InnoFest(props: LandingBodyProps) {
                 <List spacing={3} >
                   <ListItem>
                     <ListIcon as={ChevronRightIcon} color={nGreen[400]} />
-                    Bookmark <a href="http://localhost:3000/innofest">this URL</a> or join our SW<i>i</i>FT Telegram Channel.
+                    Bookmark <a href="/innofest">this URL</a> or join our SW<i>i</i>FT Telegram Channel.
                   </ListItem>
                   <ListItem>
                     <ListIcon as={ChevronRightIcon} color={nGreen[400]} />
