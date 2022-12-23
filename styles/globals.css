@@ -10,3 +10,16 @@ body {
 
   scroll-behavior: smooth;
 }
+
+.glowtext1 {
+  text-shadow: 0 0 40px #ffcd7e;
+  font-size: 13vmin;
+}
+
+.glowtext2 {
+  text-shadow: 0 0 10px #ffcd7e;
+}
+
+.glowtext3 {
+  text-shadow: 0 0 20px #ffcd7e;
+}

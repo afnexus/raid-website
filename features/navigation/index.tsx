@@ -36,6 +36,7 @@ export default function Navbar(props: NavbarProps) {
           onClick={() => router.push("/innofest")}
           variant="solid"
           color={nYellow[400]}
+          className="glowtext2"
         >
           InnoFest
         </Button>
