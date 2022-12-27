@@ -88,7 +88,7 @@ export default function InnoFest(props: LandingBodyProps) {
             />
 
             <Link href="#innofest" fontSize={{ lg: "xl" }}color={nYellow[400]}>
-              <b className="glowtext2">Click here to view InnoFest Details</b>
+              <Text as="span" textShadow="0 0 10px #ffcd7e"><b>Click here to view InnoFest Details</b></Text>
             </Link>
 
             <Box
@@ -118,6 +118,7 @@ export default function InnoFest(props: LandingBodyProps) {
                 backgroundColor={primary[800]}
                 mb={18}
                 position="relative"
+                margin="0 auto"
               >
                 <GridItem w="75%" key={0} margin="auto">
                     <Image align="center" src={"https://i.gyazo.com/9da0564863849505a6f069d2b48dc820.png"} width="100%" alt="" />
@@ -148,21 +149,21 @@ export default function InnoFest(props: LandingBodyProps) {
               id="solvathon"
               mb={5}
               >
-                <Heading size={"lg"} mb={5} color={nYellow[400]} className="glowtext3">
+                <Heading size={"lg"} mb={5} color={nYellow[400]} textShadow="0 0 20px #ffcd7e">
                   What you need to do?
                 </Heading>
                 <List spacing={3} >
                   <ListItem>
                     <ListIcon as={ChevronRightIcon} color={nGreen[400]} />
-                    Bookmark <Link href="/innofest">this URL</Link> or join our SW<i>i</i>FT Telegram Channel.
+                    Bookmark <Link href="/innofest">this URL</Link> or join our <Link href="https://t.me/swiftoffice">SW<i>i</i>FT Telegram Channel</Link>.
                   </ListItem>
                   <ListItem>
                     <ListIcon as={ChevronRightIcon} color={nGreen[400]} />
-                    <b className="glowtext2">Jan 2023</b>: Lookout for updates on this page, Telegram or OSN on how to submit your entry for SOLVATHON.
+                    <Text as="span" textShadow="0 0 10px #ffcd7e"><b>Jan 2023</b></Text>: Lookout for updates on this page, Telegram or OSN on how to submit your entry for SOLVATHON.
                   </ListItem>
                   <ListItem>
                     <ListIcon as={ChevronRightIcon} color={nGreen[400]} />
-                    <b className="glowtext2">9 Jan to 20 Jan 2023</b>: Enter the portal most suited for you and submit your entry with the following details:
+                    <Text as="span" textShadow="0 0 10px #ffcd7e"><b>9 Jan to 20 Jan 2023</b></Text>: Enter the portal most suited for you and submit your entry with the following details:
                     <List spacing={1} >
                       <ListItem>&emsp;&emsp;<ListIcon as={CheckIcon} />The pain point</ListItem>
                       <ListItem>&emsp;&emsp;<ListIcon as={InfoOutlineIcon} />A proposed innovative solution</ListItem>
@@ -171,12 +172,12 @@ export default function InnoFest(props: LandingBodyProps) {
                   </ListItem>
                   <ListItem>
                     <ListIcon as={ChevronRightIcon} color={nGreen[400]} />
-                    <b className="glowtext2">6 Feb 2023</b> onwards: Lookout for the <Text as="span" color={nYellow[400]}>SOLVATHON</Text>{" "} poll
+                    <Text as="span" textShadow="0 0 10px #ffcd7e"><b>6 Feb 2023</b></Text> onwards: Lookout for the <Text as="span" color={nYellow[400]}>SOLVATHON</Text>{" "} poll
                     and up-vote the entry you want to see SOLVED in the year ahead.
                   </ListItem>
                   <ListItem>
                     <ListIcon as={ChevronRightIcon} color={nGreen[400]} />
-                    <b className="glowtext2">23 Feb 2023</b>: Top 3 voted entries stand to win attractive prizes at InnoFest!
+                    <Text as="span" textShadow="0 0 10px #ffcd7e"><b>23 Feb 2023</b></Text>: Top 3 voted entries stand to win attractive prizes at InnoFest!
                   </ListItem>
                   <Text fontSize={{ base: "md", lg: "lg" }} textAlign="center">
                     <b>The Winning Entry of <Text as="span" color={nYellow[400]}>SOLVATHON</Text>{" "} will be announced and led by SW<i>i</i>FT Office to be SOLVED in 2023!</b>
@@ -184,7 +185,7 @@ export default function InnoFest(props: LandingBodyProps) {
                 </List>
               </Box>
               <Text fontSize={{ base: "md", lg: "2xl" }} mb={5}>
-                Join us on our <b>Telegram Channel</b> or stay tuned to this page!
+                Join us on our <Link href="https://t.me/swiftoffice"><b>Telegram Channel</b></Link> or stay tuned to this page!
               </Text>
               <div>
               <Image
@@ -216,7 +217,7 @@ export default function InnoFest(props: LandingBodyProps) {
               maxW="90vw"
               id="innofest"
             >
-              <Heading size={"3xl"} mb={10} textAlign="center" color={nYellow[400]} className="glowtext3">
+              <Heading size={"3xl"} mb={10} textAlign="center" color={nYellow[400]} textShadow="0 0 20px #ffcd7e">
                 InnoFest 22/23
                 <br />
               </Heading>
@@ -260,7 +261,7 @@ export default function InnoFest(props: LandingBodyProps) {
                     <Tr>
                       <Td>Jan 2023 to Feb 2023</Td>
                       <Td>
-                        <Link href="#solvathon" color={nYellow[400]} className="glowtext2">
+                        <Link href="#solvathon" color={nYellow[400]} textShadow="0 0 10px #ffcd7e">
                           <b>The Solvathon</b>
                         </Link>
                       </Td>
@@ -335,16 +336,19 @@ export default function InnoFest(props: LandingBodyProps) {
                 gap={3}
                 backgroundColor={primary[800]}
               >
-                {[
-                  "https://i.gyazo.com/f5b4f1f049be02d298f3b59afe6e5829.jpg",
-                  "https://i.gyazo.com/7c0b55c95205c859b3e500bb7a8c2b12.jpg",
-                  "https://i.gyazo.com/5275b01ae90f5a7ed6d11c36e1226e6b.jpg",
-                  "https://www.mindef.gov.sg/web/wcm/connect/rsaf/0999fab4-9037-4ba7-81ff-73a1fbfca76e/3.JPG?MOD=AJPERES",
-                ].map((imageURL, i) => (
-                  <GridItem w="100%" key={i}>
-                    <Image align="center" src={imageURL} height="100%" alt="" />
-                  </GridItem>
-                ))}
+                <GridItem w="100%" key={0} margin="auto">
+                    <Image align="center" src={"https://i.gyazo.com/f5b4f1f049be02d298f3b59afe6e5829.jpg"} width="100%" alt="" />
+                </GridItem>
+                <GridItem w="100%" key={1} margin="auto">
+                    <Image align="center" src={"https://i.gyazo.com/7c0b55c95205c859b3e500bb7a8c2b12.jpg"} width="100%" alt="" />
+                </GridItem>
+                <GridItem w="100%" key={2} margin="auto">
+                    <Image align="center" src={"https://i.gyazo.com/5275b01ae90f5a7ed6d11c36e1226e6b.jpg"} width="100%" alt="" />
+                </GridItem>
+                <GridItem w="100%" key={3} margin="auto">
+                    <Image align="center" src={"https://www.mindef.gov.sg/web/wcm/connect/rsaf/0999fab4-9037-4ba7-81ff-73a1fbfca76e/3.JPG?MOD=AJPERES"} width="100%" alt="" />
+                </GridItem>
+
               </Grid>
             </Box>
             
