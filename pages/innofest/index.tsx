@@ -336,18 +336,16 @@ export default function InnoFest(props: LandingBodyProps) {
                 gap={3}
                 backgroundColor={primary[800]}
               >
-                <GridItem w="100%" key={0} margin="auto">
-                    <Image align="center" src={"https://i.gyazo.com/f5b4f1f049be02d298f3b59afe6e5829.jpg"} width="100%" alt="" />
-                </GridItem>
-                <GridItem w="100%" key={1} margin="auto">
-                    <Image align="center" src={"https://i.gyazo.com/7c0b55c95205c859b3e500bb7a8c2b12.jpg"} width="100%" alt="" />
-                </GridItem>
-                <GridItem w="100%" key={2} margin="auto">
-                    <Image align="center" src={"https://i.gyazo.com/5275b01ae90f5a7ed6d11c36e1226e6b.jpg"} width="100%" alt="" />
-                </GridItem>
-                <GridItem w="100%" key={3} margin="auto">
-                    <Image align="center" src={"https://www.mindef.gov.sg/web/wcm/connect/rsaf/0999fab4-9037-4ba7-81ff-73a1fbfca76e/3.JPG?MOD=AJPERES"} width="100%" alt="" />
-                </GridItem>
+              {[
+                  "https://i.gyazo.com/f5b4f1f049be02d298f3b59afe6e5829.jpg",
+                  "https://i.gyazo.com/7c0b55c95205c859b3e500bb7a8c2b12.jpg",
+                  "https://i.gyazo.com/5275b01ae90f5a7ed6d11c36e1226e6b.jpg",
+                  "https://www.mindef.gov.sg/web/wcm/connect/rsaf/0999fab4-9037-4ba7-81ff-73a1fbfca76e/3.JPG?MOD=AJPERES",
+                ].map((imageURL, i) => (
+                  <GridItem w="100%" key={i}>
+                    <Image align="center" src={imageURL} width="100%" alt="" />
+                  </GridItem>
+                ))}
               </Grid>
             </Box>
             
