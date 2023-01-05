@@ -43,7 +43,7 @@ export default function InnoFest(props: LandingBodyProps) {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const target = new Date("1/5/2023 11:59:59");
+    const target = new Date("1/9/2023 11:59:59");
 
     const Interval = setInterval(() => {
       const now = new Date();
@@ -88,7 +88,7 @@ export default function InnoFest(props: LandingBodyProps) {
             />
 
             <Link href="#innofest" fontSize={{ lg: "xl" }}color={nYellow[400]}>
-              <Text as="span" textShadow="0 0 10px #ffcd7e"><b>Click here to view InnoFest Details</b></Text>
+              <Text as="span" textShadow="0 0 10px #ffcd7e"><b>Click here to view Innofest Details!</b></Text>
             </Link>
 
             <Box
@@ -348,7 +348,6 @@ export default function InnoFest(props: LandingBodyProps) {
                 <GridItem w="100%" key={3} margin="auto">
                     <Image align="center" src={"https://www.mindef.gov.sg/web/wcm/connect/rsaf/0999fab4-9037-4ba7-81ff-73a1fbfca76e/3.JPG?MOD=AJPERES"} width="100%" alt="" />
                 </GridItem>
-
               </Grid>
             </Box>
             
