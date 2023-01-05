@@ -1,3 +1,6 @@
+import {
+  Text,
+} from "@chakra-ui/react";
 import { Container, Box, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { nYellow } from "@afnexus/hummingbird-ui-assets";
@@ -36,9 +39,8 @@ export default function Navbar(props: NavbarProps) {
           onClick={() => router.push("/innofest")}
           variant="solid"
           color={nYellow[400]}
-          className="glowtext2"
         >
-          InnoFest
+          <Text as="span" textShadow="0 0 10px #ffcd7e">InnoFest</Text>
         </Button>
       </Container>
     </Box>
