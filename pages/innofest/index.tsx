@@ -87,8 +87,8 @@ export default function InnoFest(props: LandingBodyProps) {
               alt="SWiFT"
             />
 
-            <Link href="#innofest" fontSize={{ lg: "xl" }}color={nYellow[400]}>
-              <Text as="span" textShadow="0 0 10px #ffcd7e"><b>Click here to view Innofest Details!</b></Text>
+            <Link href="https://go.gov.sg/solvathon" fontSize={{ lg: "4xl" }}color={nYellow[400]}>
+              <Text as="span" textShadow="0 0 10px #ffcd7e"><b>Click here to submit your Solvathon entry!</b></Text>
             </Link>
 
             <Box
