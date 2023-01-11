@@ -43,7 +43,7 @@ export default function InnoFest(props: LandingBodyProps) {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const target = new Date("1/9/2023 11:59:59");
+    const target = new Date("1/20/2023 11:59:59");
 
     const Interval = setInterval(() => {
       const now = new Date();
